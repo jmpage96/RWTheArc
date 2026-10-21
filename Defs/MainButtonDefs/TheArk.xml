@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>TheArk_Checklist</defName>
+    <label>Ark</label>
+    <description>View the permanent animal collection, even when no Ark is standing.</description>
+    <tabWindowClass>TheArk.UI.MainTabWindow_Ark</tabWindowClass>
+    <order>46</order>
+    <validWithoutMap>true</validWithoutMap>
+  </MainButtonDef>
+</Defs>

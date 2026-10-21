@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>TheArk</AssemblyName>
+    <RootNamespace>TheArk</RootNamespace>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <OutputPath>../../Assemblies/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RimWorldPath Condition="'$(RimWorldPath)' == ''">$(RIMWORLD_PATH)</RimWorldPath>
+  </PropertyGroup>
+  <Import Project="../RimWorld.local.props" Condition="Exists('../RimWorld.local.props')" />
+  <PropertyGroup>
+    <RimWorldPath Condition="'$(RimWorldPath)' == ''">C:/Program Files (x86)/Steam/steamapps/common/RimWorld</RimWorldPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp"><HintPath>$(RimWorldPath)/Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityStubs"><HintPath>$(RimWorldPath)/UnityStubs.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckGameAssemblies" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(RimWorldPath)/Assembly-CSharp.dll') Or !Exists('$(RimWorldPath)/UnityStubs.dll')" Text="Set RimWorldPath to a RimWorld 1.7 installation root containing Assembly-CSharp.dll and UnityStubs.dll. See README.md." />
+  </Target>
+</Project>

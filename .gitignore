@@ -55,3 +55,9 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Local inspection tools and decompiled game code (never distribute).
+.tools/
+.local/
+Assemblies/*.pdb
+Source/RimWorld.local.props

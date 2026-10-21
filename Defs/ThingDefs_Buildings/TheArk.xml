@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>TheArk_Ark</defName>
+    <label>The Ark</label>
+    <description>A monument to the creatures this world might yet keep. Tracks the colony's permanent animal collection. Animal capture is not available in this milestone.</description>
+    <thingClass>Verse.Building</thingClass>
+    <!-- Core artwork only; this is a plain building, not a functioning console. -->
+    <graphicData>
+      <texPath>Things/Building/Misc/CommsConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5,4)</drawSize>
+    </graphicData>
+    <size>(3,2)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>1</fillPercent>
+    <blockWind>true</blockWind>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList><Steel>150</Steel><WoodLog>100</WoodLog></costList>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2110</uiOrder>
+    <building><destroySound>BuildingDestroyed_Metal_Big</destroySound></building>
+  </ThingDef>
+</Defs>
