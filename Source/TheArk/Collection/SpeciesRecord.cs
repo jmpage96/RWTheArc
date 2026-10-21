@@ -36,6 +36,13 @@ namespace TheArk.Collection
             return Registered != before;
         }
 
+        internal void Restore(RegistrationSlots slots)
+        {
+            male = (slots & RegistrationSlots.Male) != 0;
+            female = (slots & RegistrationSlots.Female) != 0;
+            sexless = (slots & RegistrationSlots.Sexless) != 0;
+        }
+
         public void ExposeData()
         {
             // Save strings, never Def references: absent mods must not erase records.

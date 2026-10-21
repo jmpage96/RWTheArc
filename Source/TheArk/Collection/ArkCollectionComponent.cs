@@ -33,8 +33,7 @@ namespace TheArk.Collection
             return required != RegistrationSlots.None && (RegisteredSlots(def.defName) & required) == required;
         }
 
-        // No pawn references or building references are retained. This is the future
-        // capture system's entry point; the debug action is its only current caller.
+        // Debug registration and Deliverance share the same rules. No live pawn is retained.
         public RegistrationResult TryRegister(Pawn animal)
         {
             if (animal == null || animal.Dead || animal.Destroyed) return RegistrationResult.NoAnimal;
@@ -44,11 +43,8 @@ namespace TheArk.Collection
         internal RegistrationResult TryRegisterSpecies(ThingDef def, Gender gender)
         {
             if (!AnimalCatalog.IsEligible(def)) return RegistrationResult.Ineligible;
-            RegistrationSlots required = AnimalCatalog.RequiredSlots(def);
-            RegistrationSlots slot = !def.race.hasGenders ? RegistrationSlots.Sexless
-                : gender == Gender.Male ? RegistrationSlots.Male
-                : gender == Gender.Female ? RegistrationSlots.Female : RegistrationSlots.None;
-            if (slot == RegistrationSlots.None || (required & slot) == 0) return RegistrationResult.InvalidGender;
+            RegistrationSlots slot = AnimalCatalog.SlotFor(def, gender);
+            if (slot == RegistrationSlots.None) return RegistrationResult.InvalidGender;
             if (!byDefName.TryGetValue(def.defName, out SpeciesRecord record))
             {
                 record = new SpeciesRecord(def.defName);
@@ -56,6 +52,13 @@ namespace TheArk.Collection
                 records.Add(record);
             }
             return record.Add(slot) ? RegistrationResult.Registered : RegistrationResult.AlreadyRegistered;
+        }
+
+        internal void RestoreRegistration(string defName, RegistrationSlots before)
+        {
+            if (!byDefName.TryGetValue(defName, out SpeciesRecord record)) return;
+            if (before == RegistrationSlots.None) { byDefName.Remove(defName); records.Remove(record); }
+            else record.Restore(before);
         }
 
         public override void ExposeData()

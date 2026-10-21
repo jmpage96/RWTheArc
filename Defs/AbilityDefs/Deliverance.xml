@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Base Ability, not Psycast: no Royalty, psyfocus, entropy, or psychic sensitivity. -->
+  <AbilityDef>
+    <defName>TheArk_Deliverance</defName>
+    <label>Deliverance</label>
+    <description>Attempt to rescue a living animal permanently. Success depends on Animals skill and the animal's wildness. A failed attempt may provoke manhunter rage. Rescuing an already registered species and sex adds no collection progress. Rescued animals and their carried belongings cannot be recovered.</description>
+    <abilityClass>TheArk.Rescue.Ability_Deliverance</abilityClass>
+    <iconPath>UI/Commands/ReleaseAnimals</iconPath>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <hostile>false</hostile>
+    <aiCanUse>false</aiCanUse>
+    <showPsycastEffects>false</showPsycastEffects>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <verbProperties>
+      <verbClass>RimWorld.Verb_CastAbility</verbClass>
+      <range>24.9</range>
+      <warmupTime>1.5</warmupTime>
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetSubhumans>false</canTargetSubhumans>
+        <canTargetEntities>false</canTargetEntities>
+        <canTargetSelf>false</canTargetSelf>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="TheArk.Rescue.CompProperties_Deliverance">
+        <baseChance>0.35</baseChance>
+        <skillFactor>0.035</skillFactor>
+        <wildnessPenalty>0.4</wildnessPenalty>
+        <minimumChance>0.05</minimumChance>
+        <maximumChance>0.95</maximumChance>
+        <manhunterChance>0.25</manhunterChance>
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>

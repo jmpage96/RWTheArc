@@ -15,5 +15,6 @@
     <Reference Include="Assembly-CSharp"><HintPath>$(RimWorldPath)/Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityStubs"><HintPath>$(RimWorldPath)/UnityStubs.dll</HintPath><Private>false</Private></Reference>
     <AssemblyMetadata Include="RimWorldPath" Value="$(RimWorldPath)" />
+    <AssemblyMetadata Include="RepositoryPath" Value="$(MSBuildProjectDirectory)/.." />
   </ItemGroup>
 </Project>

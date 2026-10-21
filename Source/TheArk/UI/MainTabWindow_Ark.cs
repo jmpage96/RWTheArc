@@ -30,8 +30,10 @@ namespace TheArk.UI
             try
             {
                 Text.Font = GameFont.Medium;
-                Widgets.Label(new Rect(0, 0, rect.width, 34), "The Ark — collection");
+                Widgets.Label(new Rect(0, 0, rect.width - 180, 34), "The Ark — Book of Life");
                 Text.Font = GameFont.Small;
+                if (Widgets.ButtonText(new Rect(rect.width - 175, 0, 175, 30), "Sanctuary Ledger"))
+                    Find.WindowStack.Add(new Dialog_SanctuaryLedger());
                 Widgets.Label(new Rect(0, 38, rect.width, 26),
                     $"{collection.Species.Count(collection.IsComplete)} / {collection.Species.Count} species complete. Progress belongs to this game.");
                 Widgets.Label(new Rect(0, 66, rect.width, 26), "Sexless species need one animal. Forced-sex species need only their available sex.");

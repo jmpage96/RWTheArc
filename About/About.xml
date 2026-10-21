@@ -4,5 +4,5 @@
   <author>The Ark Team</author>
   <packageId>TheArk.Collection</packageId>
   <supportedVersions><li>1.7</li></supportedVersions>
-  <description>Milestone 1: a buildable Ark and a persistent, game-wide animal collection checklist. Registration is currently available only through a developer action. No DLC required.</description>
+  <description>Milestone 3 — Sanctuary Economy: permanently donate colony animals for silver, record their arrival in the Book of Life, and track sanctuary donations in a persistent ledger. Includes Deliverance rescue. No DLC required.</description>
 </ModMetaData>

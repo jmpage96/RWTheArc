@@ -29,5 +29,14 @@ namespace TheArk.Collection
             if (def.race.forceGender == Gender.Female) return RegistrationSlots.Female;
             return RegistrationSlots.Male | RegistrationSlots.Female;
         }
+
+        public static RegistrationSlots SlotFor(ThingDef def, Gender gender)
+        {
+            if (!IsEligible(def)) return RegistrationSlots.None;
+            RegistrationSlots slot = !def.race.hasGenders ? RegistrationSlots.Sexless
+                : gender == Gender.Male ? RegistrationSlots.Male
+                : gender == Gender.Female ? RegistrationSlots.Female : RegistrationSlots.None;
+            return (RequiredSlots(def) & slot) != 0 ? slot : RegistrationSlots.None;
+        }
     }
 }

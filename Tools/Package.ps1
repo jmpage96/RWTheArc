@@ -20,7 +20,7 @@ Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $artifactPath = Join-Path $workspacePath 'artifacts'
 New-Item -ItemType Directory -Force $artifactPath | Out-Null
-$archivePath = Join-Path $artifactPath 'TheArk-Milestone1.zip'
+$archivePath = Join-Path $artifactPath 'TheArk-Milestone3.zip'
 $archiveStream = [IO.File]::Open($archivePath, [IO.FileMode]::Create)
 $archive = New-Object IO.Compression.ZipArchive($archiveStream, [IO.Compression.ZipArchiveMode]::Create)
 try {

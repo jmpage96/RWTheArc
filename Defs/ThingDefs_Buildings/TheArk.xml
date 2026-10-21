@@ -3,8 +3,11 @@
   <ThingDef ParentName="BuildingBase">
     <defName>TheArk_Ark</defName>
     <label>The Ark</label>
-    <description>A monument to the creatures this world might yet keep. Tracks the colony's permanent animal collection. Animal capture is not available in this milestone.</description>
+    <description>A monument to the creatures this world might yet keep. Grants Deliverance to chosen colonists and accepts colony animals as permanent sanctuary donations in exchange for silver. Records each species and sex in the Book of Life.</description>
     <thingClass>Verse.Building</thingClass>
+    <comps>
+      <li Class="TheArk.Buildings.CompProperties_ArkGrant" />
+    </comps>
     <!-- Core artwork only; this is a plain building, not a functioning console. -->
     <graphicData>
       <texPath>Things/Building/Misc/CommsConsole</texPath>
